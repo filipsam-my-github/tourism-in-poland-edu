@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+*::after,
+*::before,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #fff;
+
+  --ff-title-logo: "Playfair Display", "Georgia", serif;
+  --ff-primary: "Noto Sans", "Noto Serif", "Times New Roman", Times, serif;
+
+  --ff-footers: "Lato", "Arial", sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: var(--ff-primary);
+}
+
+h1 {
+  font-family: var(--ff-title-logo);
+}
+
+footer p {
+  font-family: var(--ff-footers);
+}
+
+.index__main--header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  justify-content: center;
+  margin-bottom: 10px;
+
+  box-shadow: 0 2px 5px #000;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+input[type="checkbox"] + label {
+  position: absolute;
+  left: 0%;
+  top: 40%;
+  height: 100%;
+  font-size: 2.3em;
+  user-select: none;
+  transform: translateX(20%) translateY(-50%);
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] ~ nav {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 250;
+  background-color: rgba(0, 0, 0, 0.1);
+  /* why doesnt it work */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 2px 5px 5px #000;
+}
+
+input[type="checkbox"] ~ nav ul li a {
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  font-family: arial;
+  color: #000;
+  text-decoration: none;
+  text-transform: capitalize;
+  padding: 10px 30px;
+  height: 50px;
+}
+
+input[type="checkbox"] ~ nav ul li a:hover {
+  background-color: black;
+}
