@@ -1,22 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
-
+/* reset */
 *::after,
 *::before,
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 :root {
-  --bg-color: #fff;
-
-  --ff-title-logo: "Playfair Display", "Georgia", serif;
-  --ff-primary: "Noto Sans", "Noto Serif", "Times New Roman", Times, serif;
+  --clr-bg: #fff;
 
   --ff-footers: "Lato", "Arial", sans-serif;
+  --ff-primary: "Noto Sans", "Noto Serif", "Times New Roman", Times, serif;
+  --ff-title-logo: "Playfair Display", "Georgia", serif;
 }
 
 body {
@@ -24,7 +23,10 @@ body {
   font-family: var(--ff-primary);
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--ff-title-logo);
 }
 
@@ -40,8 +42,16 @@ footer p {
   margin-bottom: 10px;
 
   box-shadow: 0 2px 5px #000;
+}
+
+.index__main--header::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+  z-index: -1;
 }
 
 input[type="checkbox"] + label {
@@ -61,14 +71,34 @@ input[type="checkbox"] {
 
 input[type="checkbox"] ~ nav {
   position: absolute;
-  top: 60px;
+  top: 100%;
   left: 0;
-  width: 250;
+  height: 100vh;
+  width: 0;
   background-color: rgba(0, 0, 0, 0.1);
-  /* why doesnt it work */
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+
   box-shadow: 2px 5px 5px #000;
+  overflow: hidden;
+
+  transition: 0.6s width ease;
+}
+
+input[type="checkbox"]:checked ~ nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 2px 5px 5px #000;
+  overflow: hidden;
+
+  transition: 0.6s width ease;
 }
 
 input[type="checkbox"] ~ nav ul li a {
@@ -84,5 +114,79 @@ input[type="checkbox"] ~ nav ul li a {
 }
 
 input[type="checkbox"] ~ nav ul li a:hover {
-  background-color: black;
+  position: relative;
+  background-color: rgba(245, 222, 179, 0.345);
+  transform: all 1s;
+}
+
+input[type="checkbox"] ~ nav ul li a::before {
+  content: "";
+  position: absolute;
+  background-color: rgba(109, 255, 68, 0.53);
+  width: 10px;
+  height: 100%;
+  left: 100%;
+  top: 0;
+  transform: translateX(-100%);
+  opacity: 0;
+
+  transition: all 1s;
+}
+
+input[type="checkbox"] ~ nav ul li a:hover::before {
+  content: "";
+  position: absolute;
+  background-color: rgba(109, 255, 68, 0.53);
+  width: 10px;
+  height: 100%;
+  left: 100%;
+  top: 0;
+  transform: translateX(-100%);
+  opacity: 1;
+
+  transition: all 1s;
+}
+
+.index__main-main-content {
+  margin-left: 100px;
+}
+
+.image-overlay {
+  z-index: -2;
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+}
+
+.image-overlay img {
+  display: block;
+
+  width: 40vw;
+  height: 350px;
+}
+
+.image-overlay p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 10px;
+  width: 40vw;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-weight: bold;
+}
+
+.logos {
+  display: flex;
+  justify-content: space-around;
+}
+
+.logos-title {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.logos img {
+  width: 23vw;
 }
