@@ -12,6 +12,8 @@
 
 :root {
   --clr-bg: #fff;
+  --clr-bg-black: rgb(37, 34, 34);
+  --clr-clr-white: whitesmoke;
 
   --ff-footers: "Lato", "Arial", sans-serif;
   --ff-primary: "Noto Sans", "Noto Serif", "Times New Roman", Times, serif;
@@ -35,6 +37,7 @@ footer p {
 }
 
 .index__main--header {
+  z-index: 3;
   display: flex;
   position: sticky;
   top: 0;
@@ -150,7 +153,6 @@ input[type="checkbox"] ~ nav ul li a:hover::before {
 }
 
 .image-overlay {
-  z-index: -2;
   position: relative;
   display: inline-block;
   width: fit-content;
@@ -158,9 +160,16 @@ input[type="checkbox"] ~ nav ul li a:hover::before {
 
 .image-overlay img {
   display: block;
-
   width: 40vw;
   height: 350px;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.image-overlay img:hover {
+  display: block;
+  width: 45vw;
+  height: 360px;
+  transition: width 0.3s ease, height 0.3s ease;
 }
 
 .image-overlay p {
@@ -169,7 +178,7 @@ input[type="checkbox"] ~ nav ul li a:hover::before {
   left: 0;
   margin: 0;
   padding: 10px;
-  width: 40vw;
+  width: 100%;
   background: rgba(0, 0, 0, 0.5);
   color: white;
   font-weight: bold;
@@ -185,6 +194,39 @@ input[type="checkbox"] ~ nav ul li a:hover::before {
   margin: 15px 0;
 }
 
+h2.logos-title {
+  font-size: 3rem;
+}
+
 .logos img {
   width: 23vw;
+}
+
+.index__main--footer {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: var(--clr-bg-black);
+  color: var(--clr-clr-white);
+}
+
+.insipartion a {
+  color: black;
+}
+
+.insipartion li {
+  display: flex;
+  justify-content: center;
+  align-content: start;
+}
+
+.insipartion ul {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: start;
+  align-content: center;
+  min-height: 72vh;
+}
+
+.cards {
+  min-height: 72vh;
 }

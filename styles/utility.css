@@ -1,3 +1,18 @@
 .util__no-wrap {
   white-space: nowrap;
 }
+
+.green-txt-shadow {
+  color: whitesmoke;
+  text-shadow: -0.2px 0px 4px black, 3px 0.5px 0px #34e0a1;
+}
+
+.yellow-txt-shadow {
+  color: whitesmoke;
+  text-shadow: -0.2px 0px 4px black, 3px 0.5px 0px #daa520;
+}
+
+.red-txt-shadow {
+  color: whitesmoke;
+  text-shadow: -0.2px 0px 4px black, 3px 0.5px 0px #dc143c;
+}
